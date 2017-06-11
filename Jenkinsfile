@@ -8,7 +8,7 @@ node {
     stage('Build image') {
 
         app = docker.build("aboubakr/node")
-	sh 'docker run -it -p 8000:8000 aboubakr/node'
+
 
     }
 
