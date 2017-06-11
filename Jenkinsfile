@@ -18,8 +18,8 @@ node {
         /* We test our image with a simple smoke test:
          * Run a curl inside the newly-build Docker image */
 
-        app.inside {
-            sh 'curl http://localhost'
+       /* app.inside {
+           * sh 'curl http://localhost'*/
         }
     }
 
