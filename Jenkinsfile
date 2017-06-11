@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("aboubakr/node:https:${env.BUILD_TAG}",'.')
+        app = docker.build("aboubakr/node:${env.BUILD_TAG}",'.')
     }
 
    
