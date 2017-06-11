@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("aboubakr/node")
+        app = docker.build("aboubakr/node:https:${env.BUILD_TAG}",'.')
     }
 
    
@@ -22,8 +22,8 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
         docker.withRegistry('https://hub.docker.com/r/aboubakr/node', 'docker-hub-credentials') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("master")
+            app.push()
+            app.push("latest")
         }
     }
 }
