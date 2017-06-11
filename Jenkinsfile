@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("aboubakr/node:${env.BUILD_TAG}",'.')
+        app = docker.build("aboubakr/node")
     }
 
    
@@ -23,7 +23,8 @@ node {
          * Pushing multiple tags is cheap, as all the layers are reused. */
         docker.withRegistry("https://registry.hub.docker.com", 'docker-hub-credentials') {
 
-            app.push()
+            app.push("${env.BUILD_NUMBER}")
+	    app.push("latest")
             
         }
     }
