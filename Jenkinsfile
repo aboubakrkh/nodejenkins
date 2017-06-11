@@ -24,7 +24,7 @@ node {
         docker.withRegistry('https://hub.docker.com', 'docker-hub-credentials') {
 
             app.push()
-            app.push("latest")
+            
         }
     }
 }
